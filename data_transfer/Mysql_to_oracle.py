@@ -17,21 +17,21 @@ def find(sql):
 
 
 
-import cx_Oracle                                     #引用模块cx_Oracle
-conn=cx_Oracle.connect('bian/000000@localhost/BIDB')    #连接数据库
-c=conn.cursor()                                           #获取cursor
-x=c.execute('select sysdate from dual')                   #使用cursor进行各种操作
-x.fetchone()
-c.close()                                                 #关闭cursor
-conn.close()                                              #关闭连接
+# import cx_Oracle                                     #引用模块cx_Oracle
+# conn=cx_Oracle.connect('bian/000000@//127.0.0.1:1521/orcl')    #连接数据库
+# c=conn.cursor()                                           #获取cursor
+# x=c.execute('select sysdate from dual')                   #使用cursor进行各种操作
+# x.fetchone()
+# c.close()                                                 #关闭cursor
+# conn.close()                                              #关闭连接
 
-# import cx_Oracle
-# conn=cx_Oracle.connect('load/123456@loaclhost/ora11g')
-# c=conn.cursor()
-# x=c.execute('insert into demo(v) values(:1)',['nice'])
-# conn.commit();
-# c.close()
-# conn.close()
+import cx_Oracle
+conn=cx_Oracle.connect('bian/000000@127.0.0.1:1521/orcl')
+c=conn.cursor()
+x=c.execute('insert into demo(v) values(:1)',['nice'])
+conn.commit();
+c.close()
+conn.close()
 
 if __name__=="__main__":
 
