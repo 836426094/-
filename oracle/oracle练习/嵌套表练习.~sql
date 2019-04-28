@@ -1,0 +1,22 @@
+declare
+  type emp_name_table is table of varchar2(20);
+  type deptcode_table is table of number(8);
+  
+  deptcode_info deptcode_table;
+  emp_name_info emp_name_table := emp_name_table('张三丰','林书豪');
+begin 
+  dbms_output.put_line(emp_name_info(1));
+  
+  
+  if deptcode_info is null
+    then 
+      deptcode_info := deptcode_table();
+   end if;
+   deptcode_info.extend(5);
+   for i in 1 .. 5
+   loop
+     dbms_output.put_line(i);
+     deptcode_info(i):=i*10;
+   end loop;
+   dbms_output.put_line(deptcode_info.count);
+end;
